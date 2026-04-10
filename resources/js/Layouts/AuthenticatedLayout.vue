@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from 'vue';
+import { usePage } from '@inertiajs/vue3';
 import ApplicationLogo from '@/Components/ApplicationLogo.vue';
 import Dropdown from '@/Components/Dropdown.vue';
 import DropdownLink from '@/Components/DropdownLink.vue';
@@ -8,6 +9,9 @@ import ResponsiveNavLink from '@/Components/ResponsiveNavLink.vue';
 import { Link } from '@inertiajs/vue3';
 
 const showingNavigationDropdown = ref(false);
+
+const page = usePage();
+const socialLinks = page.props.socialLinks;
 </script>
 
 <template>
@@ -39,10 +43,37 @@ const showingNavigationDropdown = ref(false);
                                 >
                                     Dashboard
                                 </NavLink>
+                                <NavLink
+                                    :href="route('admin.social-links.index')"
+                                    :active="route().current('admin.social-links.*')"
+                                >
+                                    Social Links
+                                </NavLink>
                             </div>
                         </div>
 
                         <div class="hidden sm:ms-6 sm:flex sm:items-center">
+                            <!-- Social Links -->
+                            <div v-if="socialLinks && socialLinks.length" class="flex items-center space-x-2 me-4">
+                                <a
+                                    v-for="link in socialLinks"
+                                    :key="link.id"
+                                    :href="link.url"
+                                    :title="link.name"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="flex items-center justify-center w-8 h-8 rounded-full text-gray-500 hover:text-gray-700 hover:bg-gray-100 transition duration-150 ease-in-out"
+                                >
+                                    <img
+                                        v-if="link.icon_url"
+                                        :src="link.icon_url"
+                                        :alt="link.name"
+                                        class="w-5 h-5 object-contain"
+                                    />
+                                    <span v-else class="text-xs font-medium">{{ link.name.charAt(0) }}</span>
+                                </a>
+                            </div>
+
                             <!-- Settings Dropdown -->
                             <div class="relative ms-3">
                                 <Dropdown align="right" width="48">
@@ -145,6 +176,12 @@ const showingNavigationDropdown = ref(false);
                             :active="route().current('dashboard')"
                         >
                             Dashboard
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink
+                            :href="route('admin.social-links.index')"
+                            :active="route().current('admin.social-links.*')"
+                        >
+                            Social Links
                         </ResponsiveNavLink>
                     </div>
 

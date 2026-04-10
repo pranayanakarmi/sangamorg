@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\SocialLink;
 use Illuminate\Http\Request;
 use Inertia\Middleware;
 
@@ -34,6 +35,12 @@ class HandleInertiaRequests extends Middleware
             'auth' => [
                 'user' => $request->user(),
             ],
+            'socialLinks' => fn () => SocialLink::active()->get()->map(fn ($link) => [
+                'id'       => $link->id,
+                'name'     => $link->name,
+                'url'      => $link->url,
+                'icon_url' => $link->icon_url,
+            ]),
         ];
     }
 }

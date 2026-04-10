@@ -60,7 +60,13 @@ CREATE DATABASE sangam CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 php artisan migrate
 ```
 
-### 7. Run the development server
+### 7. Create the storage symlink (required for uploaded social icons)
+
+```bash
+php artisan storage:link
+```
+
+### 8. Run the development server
 
 Start both the Laravel server and Vite dev server in separate terminals:
 
@@ -73,6 +79,19 @@ npm run dev
 ```
 
 Visit [http://localhost:8000](http://localhost:8000) in your browser.
+
+## Features
+
+### Social Links (topbar)
+
+Active social links are shown as icon buttons in the top navigation bar.
+Manage them at `/admin/social-links` (requires login):
+
+- **Add** a link with a custom icon (PNG, JPG, SVG, WebP — max 512 KB)
+- **Edit** the name, URL, icon, display order, or toggle visibility
+- **Delete** removes the link and its icon from storage
+
+Icons are stored in `storage/app/public/social-icons/` and served via the `public/storage` symlink (created by `php artisan storage:link`).
 
 ## Build for Production
 
