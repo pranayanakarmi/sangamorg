@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Sangam
 
 A Laravel application built with Inertia.js, Vue 3, Vite, and Tailwind CSS, with Laravel Breeze authentication scaffolding.
@@ -107,3 +108,6 @@ npm run build
 - [Vite](https://vitejs.dev/) — Frontend build tool
 - [Tailwind CSS](https://tailwindcss.com/) — Utility-first CSS framework
 - [Laravel Breeze](https://laravel.com/docs/starter-kits#laravel-breeze) — Authentication scaffolding
+=======
+"# sangamorg" 
+>>>>>>> 64b0190e83c21e428448170e9b09f91da862f5b3
