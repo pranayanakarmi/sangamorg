@@ -1,5 +1,6 @@
 <script setup>
 import { Head, Link } from '@inertiajs/vue3';
+import FooterLayout from '@/Components/FooterLayout.vue';
 
 defineProps({
     canLogin: {
@@ -375,11 +376,7 @@ function handleImageError() {
                     </div>
                 </main>
 
-                <footer
-                    class="py-16 text-center text-sm text-black dark:text-white/70"
-                >
-                    Laravel v{{ laravelVersion }} (PHP v{{ phpVersion }})
-                </footer>
+                <FooterLayout />
             </div>
         </div>
     </div>

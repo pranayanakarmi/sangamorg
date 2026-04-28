@@ -1,0 +1,120 @@
+/* === About Section Styles (moved from component) === */
+.about-shell {
+    background: #f8fafc;
+    padding: 3rem 0;
+}
+.about-inner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.5rem;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.about-text-col {
+    flex: 1 1 350px;
+    min-width: 300px;
+}
+.about-img-col {
+    flex: 1 1 350px;
+    min-width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.about-img-abstract {
+    position: relative;
+    width: 260px;
+    height: 260px;
+}
+.about-double-circle {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.about-img {
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 4px 24px rgba(49, 46, 129, 0.1);
+}
+.about-img-main {
+    width: 180px;
+    height: 180px;
+    position: absolute;
+    left: 40px;
+    top: 40px;
+    z-index: 2;
+}
+.about-img-back {
+    width: 120px;
+    height: 120px;
+    position: absolute;
+    left: 0;
+    top: 100px;
+    z-index: 1;
+    opacity: 0.7;
+}
+.about-img-dot {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background: #fde68a;
+    border-radius: 50%;
+}
+.about-dot-1 {
+    left: 200px;
+    top: 30px;
+}
+.about-dot-2 {
+    left: 60px;
+    top: 210px;
+}
+.about-img-shape {
+    position: absolute;
+    left: 120px;
+    top: 180px;
+    width: 60px;
+    height: 20px;
+    background: #fbbf24;
+    border-radius: 10px 10px 20px 20px;
+    opacity: 0.2;
+}
+.about-highlight {
+    color: #fbbf24;
+    font-weight: bold;
+}
+.about-body {
+    color: #334155;
+    margin-bottom: 1rem;
+}
+.about-stats {
+    display: flex;
+    gap: 2rem;
+    margin: 2rem 0 1.5rem 0;
+}
+.stat {
+    text-align: center;
+}
+.stat__num {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #312e81;
+}
+.stat__label {
+    display: block;
+    color: #64748b;
+    font-size: 1rem;
+}
+.about-cta-btn {
+    display: inline-block;
+    background: #312e81;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+.about-cta-btn:hover {
+    background: #6366f1;
+}
