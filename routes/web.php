@@ -14,7 +14,7 @@ Route::get('/', function () {
     return Inertia::render('Site/Home');
 })->name('home');
 Route::get('/about', function () {
-    return Inertia::render('Site/About');
+    return Inertia::render('Site/AboutUs');
 })->name('about');
 Route::get('/human-resources', function () {
     return Inertia::render('Site/HumanResources');
@@ -67,6 +67,32 @@ Route::middleware('auth')->group(function () {
     // Admin: Social Links management
     Route::prefix('admin')->name('admin.')->group(function () {
         Route::resource('social-links', SocialLinkController::class);
+        // Admin: Dashboard
+        Route::get('dashboard', function () {
+            return Inertia::render('Admin/Dashboard');
+        })->name('dashboard');
+        // Admin: Users
+        Route::get('users', function () {
+            return Inertia::render('Admin/Users');
+        })->name('users');
+        // Admin: Profile
+        Route::get('profile', function () {
+            return Inertia::render('Admin/Profile');
+        })->name('profile');
+        // Admin: Roles
+        Route::get('roles', function () {
+            return Inertia::render('Admin/Roles');
+        })->name('roles');
+        // Admin: Settings
+        Route::get('settings', [\App\Http\Controllers\Admin\SettingsController::class, 'index'])->name('settings');
+        // Admin: Activity Logs
+        Route::get('logs', function () {
+            return Inertia::render('Admin/Logs');
+        })->name('logs');
+        // Admin: Support
+        Route::get('support', function () {
+            return Inertia::render('Admin/Support');
+        })->name('support');
     });
 });
 
